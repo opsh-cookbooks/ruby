@@ -4,5 +4,8 @@
 
 #### usage
 
-`ops-dev recipe ruby-install`
+* `ops-dev recipe ruby-install`
+
+* support centos, ubuntu
+
 
