@@ -3,4 +3,5 @@ compile_src_url="http://cache.ruby-lang.org/pub/ruby/$(echo $compile_src_version
 compile_src_path=/opt/srcv
 compile_src_prefix=/opt/ruby-${compile_src_version}
 compile_src_configure=""
+#compile_src_configure="--disable-tk"
 compile_src_install="make,make install"
