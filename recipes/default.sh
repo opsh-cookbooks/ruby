@@ -6,8 +6,11 @@ pkg="libyaml-dev libreadline-dev libffi-dev libncurses5-dev libgdbm-dev libdbm-d
 #disable: win32ole X11 win tk
 #tk for gui
 #dbm gdbm
-${node[pkgtool]} update
-${node[pkgtool]} install -y ${pkg_essential} ${pkg_ubun12} ${pkg}
+
+#${node[pkgtool]} update
+#${node[pkgtool]} install -y ${pkg_essential} ${pkg_ubun12} ${pkg}
+apt-install ${pkg_essential} ${pkg_ubun12} ${pkg}
+
 ;;
 centos*)
 pkg_essential="make gcc gcc-c++ git man"
