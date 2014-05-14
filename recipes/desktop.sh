@@ -12,7 +12,7 @@ ubuntu*)
   else
     sudo apt-get update
     sudo apt-get install $pkg_essential $pkg_ubun12 $pkg 
-  if
+  fi
 
   [ -d ~/.rbenv ] || git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
   [ -d ~/.rbenv/plugins/ruby-build ] || git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
