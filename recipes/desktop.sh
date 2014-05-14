@@ -8,8 +8,8 @@ ubuntu*)
   pkg="libyaml-dev libreadline-dev libffi-dev libncurses5-dev libgdbm-dev libdbm-deep-perl"
   apt-install $pkg_essential $pkg_ubun12 $pkg 
 
-  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv &&
-  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build &&
+  [ -d ~/.rbenv ] || git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+  [ -d ~/.rbenv/plugins/ruby-build ] || git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
   block_insert 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc
   block_insert 'eval "$(rbenv init -)"' ~/.bashrc
   echo 'run: exec $SHELL -l'
