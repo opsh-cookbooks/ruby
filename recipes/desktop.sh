@@ -5,7 +5,7 @@ ubuntu*)
   git clone https://github.com/sstephenson/rbenv.git ~/.rbenv &&
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build &&
   block_append 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc
-  blocl_append 'eval "$(rbenv init -)"' ~/.bashrc
+  block_append 'eval "$(rbenv init -)"' ~/.bashrc
   echo 'run: exec $SHELL -l'
 ;;
 *)
