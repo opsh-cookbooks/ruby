@@ -26,4 +26,8 @@ exit 1
 ;;
 esac
 
-
+exec $SHELL -l
+which rbenv &> /dev/null
+if [ $? -eq 0 ]; then
+  rbenv install $compile_src_version && rbenv global $compile_src_version
+fi
