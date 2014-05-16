@@ -21,11 +21,11 @@ exit 1
 ;;
 esac
 
-#exec $SHELL -l
-#which rbenv &> /dev/null
-#if [ $? -eq 0 ]; then
-#  rbenv versions | grep "$compile_src_version"
-#  if [ $? -ne 0 ]; then
-#    rbenv install $compile_src_version && rbenv global $compile_src_version
-#  fi
-#fi
+source ~/.bashrc
+which rbenv &> /dev/null
+if [ $? -eq 0 ]; then
+  rbenv versions | grep "$compile_src_version"
+  if [ $? -ne 0 ]; then
+    rbenv install $compile_src_version && rbenv global $compile_src_version
+  fi
+fi
