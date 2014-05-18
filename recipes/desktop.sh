@@ -23,8 +23,18 @@ exit 1
 ;;
 esac
 
-[ -d ~/.rbenv ] || git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-[ -d ~/.rbenv/plugins/ruby-build ] || git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+if [ -d ~/.rbenv ]; then
+  cd ~/.rbenv; git pull
+else
+  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+fi
+
+if [ -d ~/.rbenv/plugins/ruby-build ]; then
+  cd ~/.rbenv/plugins/ruby-build; git pull
+else
+  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+fi
+
 block_insert 'export PATH="$HOME/.rbenv/bin:$PATH"' "${bash_config}"
 block_insert 'eval "$(rbenv init -)"' "${bash_config}"
 
