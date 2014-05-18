@@ -9,11 +9,13 @@ ubuntu*)
 
   apt-install $pkg_essential $pkg_ubun12 $pkg
 
-  [ -d ~/.rbenv ] || git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  [ -d ~/.rbenv/plugins/ruby-build ] || git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-  block_insert 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.bashrc
-  block_insert 'eval "$(rbenv init -)"' ~/.bashrc
-  echo 'run: exec $SHELL -l'
+  bash_config=~/.bashrc
+
+;;
+osx*)
+
+  bash_config=~/.bash_profile
+
 ;;
 *)
 echo "not yet"
@@ -21,7 +23,13 @@ exit 1
 ;;
 esac
 
-source ~/.bashrc
+[ -d ~/.rbenv ] || git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+[ -d ~/.rbenv/plugins/ruby-build ] || git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+block_insert 'export PATH="$HOME/.rbenv/bin:$PATH"' "${bash_config}"
+block_insert 'eval "$(rbenv init -)"' "${bash_config}"
+
+source ${bash_config}
+
 which rbenv &> /dev/null
 if [ $? -eq 0 ]; then
   rbenv versions | grep "$compile_src_version"
