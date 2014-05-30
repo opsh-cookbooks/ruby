@@ -19,8 +19,10 @@ ${node[pkgtool]} install -y ${pkg_essential} ${pkg_cent6}
 ;;
 esac
 
-template_cp "ruby-2.1.2.tar.gz" /opt
-cd /opt; tar zxvf ruby-2.1.2.tar.gz
+[ -f "/opt/ruby-2.1.2.tar.gz"] || template_cp "ruby-2.1.2.tar.gz" /opt
+if [ ! -d "/opt/ruby-2.1.2" ]; then
+  cd /opt; tar zxvf ruby-2.1.2.tar.gz
+fi
 
 #echo $compile_src_url
 
