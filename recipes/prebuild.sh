@@ -16,7 +16,4 @@ exit 1
 ;;
 esac
 
-
-[ -f "/opt/ruby_2.1.2-1_ubuntu_amd64.deb" ] || template_cp "ruby_2.1.2-1_ubuntu_amd64.deb" /opt/
-
-which ruby &> /dev/null || dpkg -i /opt/ruby_2.1.2-1_ubuntu_amd64.deb
+which ruby &> /dev/null || deb-install "ruby_2.1.2-1_ubuntu_amd64.deb"
