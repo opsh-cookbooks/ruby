@@ -4,3 +4,4 @@ license			'Apache 2.0'
 maintainer		"Jimmy Yang"
 maintainer_email	"gankkank@gmail.com"
 description		"install ruby"
+type			"lang"
